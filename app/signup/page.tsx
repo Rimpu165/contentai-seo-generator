@@ -185,7 +185,7 @@ function MobileHero({ isPasswordFocused }: { isPasswordFocused: boolean }) {
         transition={{ delay: 0.5 }}
         className="relative z-10 mt-1 text-white/70 text-xs font-medium tracking-widest uppercase"
       >
-        {isPasswordFocused ? "I won't peek 🙈" : "I'm watching you..."}
+        {isPasswordFocused ? "I won't peek 🙈" : "I see what ranks."}
       </motion.p>
 
       <div className="absolute bottom-0 left-0 right-0">
@@ -245,7 +245,7 @@ export default function SignupPage() {
   };
 
   const inputClass =
-    "w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm text-gray-900 placeholder:text-gray-300 outline-none transition-all duration-200 focus:border-orange-300 focus:bg-white focus:ring-4 focus:ring-orange-50";
+    "w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm text-gray-900 placeholder:text-gray-300 focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition";
 
   return (
     <div className="min-h-screen bg-white flex flex-col lg:flex-row">
@@ -339,7 +339,7 @@ export default function SignupPage() {
                 className={`${inputClass} pr-14`}
               />
               <button type="button" onClick={() => setShowPassword(!showPassword)} tabIndex={-1}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-semibold text-gray-400 hover:text-gray-700 transition-colors select-none">
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs select-none text-gray-600 font-medium hover:text-orange-500 cursor-pointer transition-colors">
                 {showPassword ? "Hide" : "Show"}
               </button>
             </div>
@@ -446,7 +446,7 @@ export default function SignupPage() {
           transition={{ delay: 0.8 }}
         >
           <p className="text-white/60 text-sm font-medium tracking-wide">
-            {isPasswordFocused && !showPassword ? "I won't peek... 🙈" : "I'm watching you..."}
+            {isPasswordFocused && !showPassword ? "I won't peek... 🙈" : "I see what ranks."}
           </p>
         </motion.div>
       </motion.div>

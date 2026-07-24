@@ -32,7 +32,7 @@ export async function POST(request: Request) {
         // JWT token banao
         const token = jwt.sign(
             { userId: user._id, email: user.email },
-            process.env.JWT_SECRET as string,
+            process.env.JWT_SECRET || "super_secret_jwt_key_contentai_123",
             { expiresIn: "7d" }
         );
 
@@ -56,8 +56,9 @@ export async function POST(request: Request) {
         return response;
     }
     catch (error) {
+        console.error("Login error:", error);
         return Response.json(
-            { message: "Internal Server Error" },
+            { message: "Internal Server Error", error: error instanceof Error ? error.message : String(error) },
             { status: 500 }
         )
     }
